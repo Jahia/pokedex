@@ -1,0 +1,11 @@
+<pokemonnt = 'http://www.jahia.org/jahia/pokemonnt/1.0'>
+<pokemonmix = 'http://www.jahia.org/jahia/pokemonmix/1.0'>
+
+[pokemonmix:component] > jmix:droppableContent, jmix:editorialContent mixin
+[pokemonnt:pokemon] > jnt:content, pokemonmix:component
+ - name (string) mandatory
+ - hp (string) mandatory
+ - cp (string) mandatory
+ - picture (weakreference, picker[type='image']) < jmix:image
+ - types (string, choicelist) = 'normal' mandatory multiple < 'electrical', 'fairy', 'fire', 'flight', 'insect', 'normal', 'poison', 'plant', 'water'
+
