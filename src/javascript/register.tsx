@@ -6,11 +6,9 @@ import { registry } from '@jahia/ui-extender';
 
 export default function () {
 
-    //window.jahia.i18n.loadNamespaces('pokedex');
-
     registry.add('adminRoute', 'pokedexAdmin', {
         targets: ['administration-sites:999', 'pokedex-accordion'],
-        label: 'pokedex:title',
+        label: 'pokedex:label.settings.title',
         icon: <Cloud/>,
         isSelectable: true,
         render: () => React.createElement(App)
