@@ -1,4 +1,5 @@
-import {registry} from '@jahia/ui-extender';
+// @ts-ignore
+import { registry } from '@jahia/ui-extender';
 import register from './register';
 
 export default function () {

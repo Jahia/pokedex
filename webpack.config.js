@@ -13,12 +13,12 @@ module.exports = (env, argv) => {
         },
         output: {
             path: path.resolve(__dirname, 'src/main/resources/javascript/apps/'),
-            filename: 'translation-deepl.bundle.js',
+            filename: 'pokedex.bundle.js',
             chunkFilename: '[name].jahia.[chunkhash:6].js'
         },
         resolve: {
             mainFields: ['module', 'main'],
-            extensions: ['.mjs', '.js', '.jsx', 'json', '.scss'],
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
             fallback: { "url": false }
         },
         module: {
@@ -29,23 +29,9 @@ module.exports = (env, argv) => {
                     type: 'javascript/auto'
                 },
                 {
-                    test: /\.jsx?$/,
-                    include: [path.join(__dirname, 'src')],
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                ['@babel/preset-env', {
-                                    modules: false,
-                                    targets: {chrome: '60', edge: '44', firefox: '54', safari: '12'}
-                                }],
-                                '@babel/preset-react'
-                            ],
-                            plugins: [
-                                '@babel/plugin-syntax-dynamic-import'
-                            ]
-                        }
-                    }
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/,
                 },
                 {
                     test: /\.scss$/i,
@@ -80,8 +66,8 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new ModuleFederationPlugin({
-                name: "translationDeepl",
-                library: { type: "assign", name: "appShell.remotes.translationDeepl" },
+                name: "pokedex",
+                library: { type: "assign", name: "appShell.remotes.pokedex" },
                 filename: "remoteEntry.js",
                 exposes: {
                     './init': './src/javascript/init'
