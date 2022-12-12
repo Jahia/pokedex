@@ -1,5 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import Pokemon from '../models/pokemon';
+import '../materialize.min.css';
+import './pokemon-card.css';
 
 type Props = {
     pokemon: Pokemon
@@ -7,7 +9,8 @@ type Props = {
 
 const PokemonCard: FunctionComponent<Props> = ({pokemon}) => {
 
-    return (<div className="col s6 m4">
+    return (<div>
+        <div className="col s6 m4">
             <div className="card horizontal">
                 <div className="card-image">
                     <img src={pokemon.picture} alt={pokemon.name}/>
@@ -18,7 +21,8 @@ const PokemonCard: FunctionComponent<Props> = ({pokemon}) => {
                     </div>
                 </div>
             </div>
-        </div>);
+        </div>
+    </div>);
 }
 
 export default PokemonCard;
