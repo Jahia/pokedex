@@ -2,6 +2,7 @@ import React, {FunctionComponent, useEffect, useState} from 'react';
 import Pokemon from '../models/pokemon';
 import '../materialize.min.css';
 import './pokemon-card.css';
+import formatType from "../helpers/format-type";
 
 type Props = {
     pokemon: Pokemon,
@@ -31,6 +32,10 @@ const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#008000'
                 <div className="card-stacked">
                     <div className="card-content">
                         <p>{pokemon.name}</p>
+                        {pokemon.types.map(type => (
+                            <span key={type} className={formatType(type)}>{type}</span>
+                            )
+                        )}
                     </div>
                 </div>
             </div>
