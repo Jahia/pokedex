@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from 'react';
 import Pokemon from '../models/pokemon';
-import '../materialize.min.css';
 import './pokemon-card.css';
+import '../theme.css';
 
 type Props = {
     pokemon: Pokemon,
