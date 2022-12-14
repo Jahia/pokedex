@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useEffect, useState} from 'react';
 import Pokemon from '../models/pokemon';
-import '../materialize.min.css';
+import '../theme.css';
 import './pokemon-card.css';
 import formatType from "../helpers/format-type";
 
