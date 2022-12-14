@@ -7,7 +7,7 @@ import usePokemons from "../hooks/pokemon.hook";
 const PokemonList: FunctionComponent = () => {
     const pokemons = usePokemons();
 
-    return (<div style={{overflowY: 'scroll'}}>
+    return (<div style={{overflowY: 'scroll', width: '100%'}} >
         <h1 className="center">Pokédex</h1>
         <div className="container">
             <div className="row">
