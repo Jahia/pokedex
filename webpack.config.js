@@ -18,7 +18,11 @@ module.exports = (env, argv) => {
             mainFields: ['module', 'main'], extensions: ['.js', '.jsx', '.ts', '.tsx'], fallback: {"url": false}
         }, module: {
             rules: [...moonstone, {
-                test: /\.m?js$/, type: 'javascript/auto'
+                test: /\.m?js$/,
+                resolve: {
+                    fullySpecified: false
+                },
+                type: 'javascript/auto'
             }, {
                 test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/,
             }, {
@@ -43,7 +47,7 @@ module.exports = (env, argv) => {
             }, {
                 include: [path.join(__dirname, 'src')],
                 sideEffects: true,
-                exclude: ['/node_modules/','/nodes/'],
+                exclude: ['/node_modules/', '/nodes/'],
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             }]
@@ -60,8 +64,7 @@ module.exports = (env, argv) => {
             shared
         }), new CleanWebpackPlugin({verbose: false}), new CopyWebpackPlugin({
             patterns: [{
-                from: './package.json',
-                to: ''
+                from: './package.json', to: ''
             }]
         }),], mode: 'development'
     };
