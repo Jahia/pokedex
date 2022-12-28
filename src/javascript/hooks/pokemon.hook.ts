@@ -1,21 +1,25 @@
 import Pokemon from "../models/pokemon";
 import {useQuery} from "react-apollo";
-import {GetPokemons} from "../graphql/queries";
+import {GetPokemon} from "../graphql/queries";
+import {useState} from "react";
 
-const usePokemons = () => {
-    const pokemons: Pokemon[] = [];
+// @ts-ignore
+const usePokemon = (uuid) => {
+    let pokemon = null;
 
-    const {loading, error, data} = useQuery(GetPokemons, {
-        fetchPolicy: 'network-only', errorPolicy: 'all'
+    const {loading, error, data} = useQuery(GetPokemon, {
+        fetchPolicy: 'network-only', errorPolicy: 'all',
+        variables:{
+            uuid: uuid
+        }
     });
 
     if (data) {
-        data.jcr.queryResults[0].children.nodes.map((node: any) => {
-            pokemons.push(new Pokemon(node.uuid, node.hp.value, node.cp.value, node.name, '/files/default' + node.picture.url.path, node.types.values));
-        });
+        const pokemonResult = data.jcr.queryResults;
+        pokemon = new Pokemon(pokemonResult.uuid, pokemonResult.hp.value, pokemonResult.cp.value, pokemonResult.name, '/files/default' + pokemonResult.picture.url.path, pokemonResult.types.values);
     }
 
-    return {loading, error, pokemons};
+    return {loading, error, pokemon};
 }
 
-export default usePokemons;
+export default usePokemon;

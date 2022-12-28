@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useState, useEffect} from 'react';
 import Pokemon from '../models/pokemon';
 import PokemonCard from '../components/pokemon-card';
-import usePokemons from "../hooks/pokemon.hook";
+import usePokemons from "../hooks/pokemons.hook";
 
 const PokemonList: FunctionComponent = () => {
     const {error, loading, pokemons} = usePokemons();
