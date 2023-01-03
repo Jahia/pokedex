@@ -10,7 +10,9 @@ query {
         nodes{
           uuid
           workspace
-          name
+          name: property(name: "name") {
+            value
+          }
           hp: property(name: "hp") {
             value
           }
@@ -43,7 +45,9 @@ query($uuid: String!) {
 
       uuid
       workspace
-      name
+      name: property(name: "name") {
+        value
+      }
       hp: property(name: "hp") {
         value
       }
@@ -64,5 +68,52 @@ query($uuid: String!) {
   }
 }
 `;
+const UpdatePokemon = gql`
+  mutation($uuid: String!, $name: String!, $hp: String!, $cp: String!, $types: [String]!) {
+    jcr(workspace: EDIT) {
+      mutateNode(pathOrId: $uuid) {
+        name: mutateProperty(name: "name") {
+          setValue(type: STRING, value: $name)
+        }
+        hp: mutateProperty(name: "hp") {
+          setValue(type: STRING, value: $hp)
+        }
+        cp: mutateProperty(name: "cp") {
+          setValue(type: STRING, value: $cp)
+        }
+        types: mutateProperty(name: "types") {
+          setValues(type: STRING, values: $types)
+        }
+      }
+    }
+  }
+`;
 
-export {GetPokemons, GetPokemon};
+const DeletePokemon = gql`
+  mutation($uuid: String!) {
+    jcr(workspace: EDIT) {
+      deleteNode(pathOrId: $uuid)
+    }
+  }
+`;
+
+const AddPokemon = gql`
+  mutation($name: String!, $hp: String!, $cp: String!, $types: [String]!) {
+    jcr(workspace: EDIT) {
+    addNode(
+      parentPathOrId: "/sites/pokedex/contents/pokemons",
+      name: $name,
+      primaryNodeType: "pokemonnt:pokemon",
+      properties: [
+        {name: "name", value: $name},
+        {name: "hp", value: $hp},
+        {name: "cp", value: $cp},
+        {name: "types", values: $types},
+      ]
+    ){
+      uuid
+    }
+  }
+}
+`;
+export {AddPokemon, DeletePokemon, GetPokemon, GetPokemons, UpdatePokemon};

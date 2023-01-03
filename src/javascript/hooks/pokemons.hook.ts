@@ -13,7 +13,7 @@ const usePokemons = () => {
 
     if (data) {
         data.jcr.queryResults[0].children.nodes.map((node: any) => {
-            pokemons.push(new Pokemon(node.uuid, node.hp.value, node.cp.value, node.name, '/files/default' + node.picture.url.path, node.types.values));
+            pokemons.push(new Pokemon(node.uuid, node.hp.value, node.cp.value, node.name.value, node.picture ? '/files/default' + node.picture.url.path: "", node.types.values));
         });
     }
 

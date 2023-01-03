@@ -33,7 +33,8 @@ const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#008000'
         <div className="col s6 m4">
             <div className="card horizontal" style={{borderColor: color}}>
                 <div className="card-image">
-                    <img src={pokemon.picture} alt={pokemon.name}/>
+                    {pokemon.picture.length > 0 && (
+                    <img src={pokemon.picture} alt={pokemon.name}/>)}
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">

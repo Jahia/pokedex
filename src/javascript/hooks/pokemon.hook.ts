@@ -16,7 +16,7 @@ const usePokemon = (uuid) => {
 
     if (data) {
         const pokemonResult = data.jcr.queryResults;
-        pokemon = new Pokemon(pokemonResult.uuid, pokemonResult.hp.value, pokemonResult.cp.value, pokemonResult.name, '/files/default' + pokemonResult.picture.url.path, pokemonResult.types.values);
+        pokemon = new Pokemon(pokemonResult.uuid, pokemonResult.hp.value, pokemonResult.cp.value, pokemonResult.name.value, pokemonResult.picture ? '/files/default' + pokemonResult.picture.url.path: "", pokemonResult.types.values);
     }
 
     return {loading, error, pokemon};

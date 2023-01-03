@@ -4,6 +4,8 @@ import PokemonDetail from "./pages/pokemon-detail";
 import PokemonList from "./pages/pokemon-list";
 // @ts-ignore
 import {registry} from '@jahia/ui-extender';
+import PokemonEdit from "./pages/pokemon-edit";
+import PokemonAdd from "./pages/pokemon-add";
 
 export default function () {
 
@@ -32,6 +34,19 @@ export default function () {
         label: 'pokedex:label.settings.title',
         isSelectable: true,
         render: () => React.createElement(PokemonList)
+    });
+
+    registry.add('route', 'route-pokedex-pokemon-add', {
+        targets: ['main:999'],
+        path: `/pokedex/pokemons/add`,
+        render: () => React.createElement(PokemonAdd)
+    });
+
+    registry.add('route', 'route-pokedex-pokemon-edit', {
+        targets: ['main:999'],
+        path: `/pokedex/pokemons/edit/:uuid`,
+        // @ts-ignore
+        render: ({match}) => React.createElement(PokemonEdit, match={match})
     });
 
     registry.add('route', 'route-pokedex-pokemon', {

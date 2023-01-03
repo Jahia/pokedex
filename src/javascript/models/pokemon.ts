@@ -14,7 +14,7 @@ export default class Pokemon {
         cp: number = 10,
         name: string = 'name',
         picture: string = 'http://...',
-        types: Array<string> = ['Normal'],
+        types: Array<string> = ['normal'],
     ) {
         // 3. Initialisation des propiétés d'un pokémons.
         this.id = id;
