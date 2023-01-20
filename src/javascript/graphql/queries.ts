@@ -68,6 +68,7 @@ query($uuid: String!) {
   }
 }
 `;
+
 const UpdatePokemon = gql`
   mutation($uuid: String!, $name: String!, $hp: String!, $cp: String!, $types: [String]!) {
     jcr(workspace: EDIT) {
@@ -98,7 +99,7 @@ const DeletePokemon = gql`
 `;
 
 const AddPokemon = gql`
-  mutation($name: String!, $hp: String!, $cp: String!, $types: [String]!) {
+  mutation($name: String!, $hp: String!, $cp: String!, $types: [String]!, $picture: String!) {
     jcr(workspace: EDIT) {
     addNode(
       parentPathOrId: "/sites/pokedex/contents/pokemons",
@@ -109,6 +110,7 @@ const AddPokemon = gql`
         {name: "hp", value: $hp},
         {name: "cp", value: $cp},
         {name: "types", values: $types},
+        {name: "picture", value: $picture},
       ]
     ){
       uuid
@@ -116,4 +118,24 @@ const AddPokemon = gql`
   }
 }
 `;
-export {AddPokemon, DeletePokemon, GetPokemon, GetPokemons, UpdatePokemon};
+
+const GetPokemonImages = gql`
+query {
+  jcr(workspace: EDIT) {
+    queryResults: nodesByPath(paths:["/sites/pokedex/files/pokemons"]) {
+      uuid
+      workspace
+      children{
+        nodes{
+          uuid
+          workspace
+          name
+          path
+        }
+      }
+    }
+  }
+}
+`;
+
+export {AddPokemon, DeletePokemon, GetPokemon, GetPokemonImages, GetPokemons, UpdatePokemon};
