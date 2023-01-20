@@ -39,11 +39,9 @@ module.exports = (env, argv) => {
                     }, // Compiles Sass to CSS
                     'sass-loader']
             }, {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/, use: [{
-                    loader: 'file-loader', options: {
-                        name: '[name].[ext]', outputPath: 'fonts/'
-                    }
-                }]
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                type: 'asset/resource',
+                dependency: {not: ['url']}
             }, {
                 include: [path.join(__dirname, 'src')],
                 sideEffects: true,
