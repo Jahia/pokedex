@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState, useEffect} from 'react';
+import React, {FunctionComponent} from 'react';
 // @ts-ignore
 import {RouteComponentProps, Link} from 'react-router-dom';
 import formatType from '../helpers/format-type';

@@ -1,6 +1,5 @@
-import Pokemon from "../models/pokemon";
 import {useQuery} from "react-apollo";
-import {GetPokemonImages, GetPokemons} from "../graphql/queries";
+import {GetPokemonImages} from "../graphql/queries";
 import PokemonImage from "../models/pokemon-image";
 
 const usePokemonImages = () => {

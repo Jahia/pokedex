@@ -10,28 +10,30 @@ import PokemonAdd from "./pages/pokemon-add";
 export default function () {
 
     // Addition to the site settings
-    registry.add('adminRoute', 'pokedexSiteAdmin', {
+    const adminRoute = 'adminRoute';
+    const labelSettingsTitle = 'pokedex:label.settings.title';
+    registry.add(adminRoute, 'pokedexSiteAdmin', {
         targets: ['administration-sites:999', 'pokedex-site-admin'],
-        label: 'pokedex:label.settings.title',
+        label: labelSettingsTitle,
         icon: <Cloud/>,
         isSelectable: true,
         render: () => React.createElement(PokemonList)
     });
 
     // Addition to the server settings
-    registry.add('adminRoute', 'pokedexServerAdmin', {
+    registry.add(adminRoute, 'pokedexServerAdmin', {
         targets: ['administration-server:999', 'pokedex-server-admin'],
-        label: 'pokedex:label.settings.title',
+        label: labelSettingsTitle,
         icon: <Cloud/>,
         isSelectable: true,
         render: () => React.createElement(PokemonList)
     });
 
     // Addition in the user dashboard
-    registry.add('adminRoute', 'pokedexDashboard', {
+    registry.add(adminRoute, 'pokedexDashboard', {
         targets: ['dashboard:999'],
         icon: <Cloud/>,
-        label: 'pokedex:label.settings.title',
+        label: labelSettingsTitle,
         isSelectable: true,
         render: () => React.createElement(PokemonList)
     });

@@ -1,7 +1,6 @@
 import Pokemon from "../models/pokemon";
 import {useQuery} from "react-apollo";
 import {GetPokemon} from "../graphql/queries";
-import {useState} from "react";
 
 // @ts-ignore
 const usePokemon = (uuid) => {

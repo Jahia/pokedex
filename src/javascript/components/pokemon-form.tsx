@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useState} from 'react';
-import {AddPokemon, DeletePokemon, GetPokemonImages, GetPokemon, UpdatePokemon} from "../graphql/queries";
+import {AddPokemon, DeletePokemon, UpdatePokemon} from "../graphql/queries";
 import {Link, useHistory} from "react-router-dom";
-import {useMutation, useQuery} from "react-apollo";
+import {useMutation} from "react-apollo";
 import formatType from '../helpers/format-type';
 import Pokemon from '../models/pokemon';
 import Select from 'react-select';
@@ -81,7 +81,7 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
             const end = ".png";
 
             if (!pokemonImage.startsWith(start) || !pokemonImage.endsWith(end)) {
-                const errorMsg: string = 'The URL is not valid.';
+                const errorMsg = 'The URL is not valid.';
                 const newField: Field = {value: pokemonImage, error: errorMsg, isValid: false};
                 newForm = {...newForm, ...{picture: newField}};
             } else {
@@ -92,7 +92,7 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
 
         // Validator name
         if (!/^[a-zA-Zàéè ]{3,25}$/.test(form.name.value)) {
-            const errorMsg: string = 'The Pokemon name is required (1-25).';
+            const errorMsg = 'The Pokemon name is required (1-25).';
             const newField: Field = {value: form.name.value, error: errorMsg, isValid: false};
             newForm = {...newForm, ...{name: newField}};
         } else {
@@ -102,7 +102,7 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
 
         // Validator hp
         if (!/^[0-9]{1,3}$/.test(form.hp.value)) {
-            const errorMsg: string = 'Pokemon health points are between 0 and 999.';
+            const errorMsg = 'Pokemon health points are between 0 and 999.';
             const newField: Field = {value: form.hp.value, error: errorMsg, isValid: false};
             newForm = {...newForm, ...{hp: newField}};
         } else {
@@ -112,7 +112,7 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
 
         // Validator cp
         if (!/^[0-9]{1,2}$/.test(form.cp.value)) {
-            const errorMsg: string = 'Pokemon damages are between 0 and 99';
+            const errorMsg = 'Pokemon damages are between 0 and 99';
             const newField: Field = {value: form.cp.value, error: errorMsg, isValid: false};
             newForm = {...newForm, ...{cp: newField}};
         } else {
@@ -169,7 +169,6 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
     }
 
     const updatePokemon = () => {
-        //PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`));
         updatePokemonMutation({
             variables: {
                 uuid: pokemon.id, name: pokemon.name, hp: pokemon.hp, cp: pokemon.cp, types: pokemon.types

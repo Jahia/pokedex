@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState, useEffect} from 'react';
+import React, {FunctionComponent} from 'react';
 import Pokemon from '../models/pokemon';
 import PokemonCard from '../components/pokemon-card';
 import usePokemons from "../hooks/pokemons.hook";

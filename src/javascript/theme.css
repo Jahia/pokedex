@@ -3506,74 +3506,6 @@ td, th {
     -webkit-tap-highlight-color: transparent;
 }
 
-.btn.disabled, .disabled.btn-large, .disabled.btn-small,
-.btn-floating.disabled,
-.btn-large.disabled,
-.btn-small.disabled,
-.btn-flat.disabled,
-.btn:disabled,
-.btn-large:disabled,
-.btn-small:disabled,
-.btn-floating:disabled,
-.btn-large:disabled,
-.btn-small:disabled,
-.btn-flat:disabled,
-.btn[disabled],
-.btn-large[disabled],
-.btn-small[disabled],
-.btn-floating[disabled],
-.btn-large[disabled],
-.btn-small[disabled],
-.btn-flat[disabled] {
-    pointer-events: none;
-    background-color: #DFDFDF !important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #9F9F9F !important;
-    cursor: default;
-}
-
-.btn.disabled:hover, .disabled.btn-large:hover, .disabled.btn-small:hover,
-.btn-floating.disabled:hover,
-.btn-large.disabled:hover,
-.btn-small.disabled:hover,
-.btn-flat.disabled:hover,
-.btn:disabled:hover,
-.btn-large:disabled:hover,
-.btn-small:disabled:hover,
-.btn-floating:disabled:hover,
-.btn-large:disabled:hover,
-.btn-small:disabled:hover,
-.btn-flat:disabled:hover,
-.btn[disabled]:hover,
-.btn-large[disabled]:hover,
-.btn-small[disabled]:hover,
-.btn-floating[disabled]:hover,
-.btn-large[disabled]:hover,
-.btn-small[disabled]:hover,
-.btn-flat[disabled]:hover {
-    background-color: #DFDFDF !important;
-    color: #9F9F9F !important;
-}
-
-.btn, .btn-large, .btn-small,
-.btn-floating,
-.btn-large,
-.btn-small,
-.btn-flat {
-    font-size: 14px;
-    outline: 0;
-}
-
-.btn i, .btn-large i, .btn-small i,
-.btn-floating i,
-.btn-large i,
-.btn-small i,
-.btn-flat i {
-    font-size: 1.3rem;
-    line-height: inherit;
-}
-
 .btn:focus, .btn-large:focus, .btn-small:focus,
 .btn-floating:focus {
     background-color: #1d7d74;
@@ -3762,12 +3694,6 @@ button.btn-floating {
     transition: none !important;
 }
 
-.waves-circle {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-}
-
 .waves-input-wrapper {
     border-radius: 0.2em;
     vertical-align: bottom;
@@ -3793,10 +3719,6 @@ button.btn-floating {
     display: block;
 }
 
-/* Firefox Bug: link not triggered */
-.waves-effect .waves-ripple {
-    z-index: -1;
-}
 /* fallback */
 @font-face {
     font-family: 'Material Icons';
@@ -3806,7 +3728,7 @@ button.btn-floating {
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: Material Icons,sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -3934,13 +3856,6 @@ progress {
     /* 1 */
     vertical-align: baseline;
     /* 2 */
-}
-
-/**
- * Remove the default vertical scrollbar in IE.
- */
-textarea {
-    overflow: auto;
 }
 
 /**
@@ -4987,11 +4902,10 @@ textarea.materialize-textarea {
     height: 14px;
     background-color: rgba(0, 0, 0, 0.38);
     border-radius: 15px;
-    margin-right: 10px;
+    margin: 0 10px 0 16px;
     -webkit-transition: background 0.3s ease;
     transition: background 0.3s ease;
     vertical-align: middle;
-    margin: 0 16px;
 }
 
 .switch label .lever:before, .switch label .lever:after {
@@ -5297,10 +5211,6 @@ input[type=range] + .thumb.active .value {
     font-size: 10px;
 }
 
-input[type=range] {
-    -webkit-appearance: none;
-}
-
 input[type=range]::-webkit-slider-runnable-track {
     height: 3px;
     background: #c2c0c2;
@@ -5327,12 +5237,6 @@ input[type=range]::-webkit-slider-thumb {
 .keyboard-focused input[type=range]:focus:not(.active)::-webkit-slider-thumb {
     -webkit-box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
     box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
-}
-
-input[type=range] {
-    /* fix for FF unable to apply focus style bug  */
-    border: 1px solid white;
-    /*required for proper track sizing in FF*/
 }
 
 input[type=range]::-moz-range-track {
