@@ -26,7 +26,7 @@
     <properties>
         <jahia-depends>default</jahia-depends>
         <jahia-static-resources>/css,/icons,/javascript,/swf</jahia-static-resources>
-        <jahia.plugin.version>6.9</jahia.plugin.version>
+        <jahia.plugin.version>6.12</jahia.plugin.version>
         <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
     </properties>
 
