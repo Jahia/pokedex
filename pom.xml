@@ -7,7 +7,7 @@
     <parent>
         <artifactId>jahia-modules</artifactId>
         <groupId>org.jahia.modules</groupId>
-        <version>8.1.3.0</version>
+        <version>8.2.1.0</version>
     </parent>
     <groupId>org.jahia.community</groupId>
     <artifactId>pokedex</artifactId>
@@ -26,8 +26,9 @@
     <properties>
         <jahia-depends>default</jahia-depends>
         <jahia-static-resources>/css,/icons,/javascript,/swf</jahia-static-resources>
-        <jahia.plugin.version>6.0</jahia.plugin.version>
-        <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
+        <jahia.plugin.version>6.12</jahia.plugin.version>
+        <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"
+        </require-capability>
         <sonar.sources>src/javascript</sonar.sources>
         <yarn.arguments>build:production</yarn.arguments>
     </properties>
@@ -82,8 +83,8 @@
                             <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v14.18.2</nodeVersion>
-                            <yarnVersion>v1.22.10</yarnVersion>
+                            <nodeVersion>v22.16.0</nodeVersion>
+                            <yarnVersion>v1.22.21</yarnVersion>
                         </configuration>
                     </execution>
                     <execution>
