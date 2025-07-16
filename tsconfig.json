@@ -19,6 +19,7 @@
     "noEmit": false,
     "jsx": "react",
     "noFallthroughCasesInSwitch": true,
+    "types": ["node"]
   },
   "include": [
     "src/javascript"
