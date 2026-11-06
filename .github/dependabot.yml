@@ -4,3 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
+    ignore:
+      # The Jahia parent / platform artifacts define the target Jahia version: bump deliberately, not via Dependabot
+      - dependency-name: "org.jahia.*"
+      # OSGi spec artifacts change Require-Capability / Import-Package ranges (Jahia 8.2 ships DS 1.4)
+      - dependency-name: "org.osgi:*"
